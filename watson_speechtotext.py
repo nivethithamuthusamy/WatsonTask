@@ -10,6 +10,7 @@ response = requests.post("https://stream.watsonplatform.net/speech-to-text/api/v
          )
  
 value = json.loads(response.text)
+#prints the result in a text file only if final is equal to true
 if value["results"][0]["final"]:
     print (value["results"][0]["alternatives"][0]["transcript"])
     with open("json-output.txt", "w") as text_file:
